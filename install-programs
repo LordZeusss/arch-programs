@@ -1,0 +1,384 @@
+#!/bin/bash
+
+echo "
+___  ____ _  _ ____    _ _  _ ____ ___ ____ _    _    ____ ____ 
+  /  |___ |  | [__     | |\ | [__   |  |__| |    |    |___ |__/ 
+ /__ |___ |__| ___]    | | \| ___]  |  |  | |___ |___ |___ |  \ 
+                                                                
+"
+
+
+#This script is for Arch base systems. Manjaro/Arch.
+#It's purpose is to install programs that you may find essential.
+
+#functions. Add the commands here
+
+updaterepo () { sudo pacman -Syy; }
+updatesystem () { yes | sudo pacman -Syu; }
+noanswer () { echo "Skipping..." ; }
+chrome () { yes | sudo pacman -S chromium; }
+firefox () { yes | sudo pacman -S firefox; }
+neofetch () { yes | sudo pacman -S neofetch; }
+htop () { yes | sudo pacman -S htop; }
+spectacle () { yes | sudo pacman -S spectacle; }
+veracrypt () { (echo 1; yes) | yay veracrypt; }
+libreoffice () { yes | sudo pacman -S libreoffice-fresh; } 
+obs () { yes | sudo pacman -S obs-studio; }
+thunderbird () { yes | sudo pacman -S thunderbird; }
+jdownloader () { (echo 1; n; n) | yay jdownloader2; }
+tor () { (echo 1; n; y) | yay tor-browser; }
+
+#
+#Package and System Update First
+#
+
+echo " "
+echo "Would you like to update your system? (y/n/e)"
+echo "y=yes | n=no | e=exit"
+echo " "
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	updaterepo
+elif [ "$yesorno" = y ]; then
+	updatesystem
+	echo " "
+	echo "Update Successful."
+	echo " "
+elif [ "$yesorno" = n ]; then
+	echo "Skipping..."
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "Not a valid answer. Exiting..."
+	exit 1
+fi
+
+#
+#Chromium Installation
+#
+
+echo "Would you like to install Chrome? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	chrome
+	echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+	noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "Not a valid answer. Exiting..."
+	exit 1
+fi
+
+#
+#Firefox Installation
+#
+
+echo "Would you like to install Firefox? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	firefox
+	echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+	noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "not a valid answer. Exiting"
+	exit 1
+fi
+
+#
+#Neofetch installation
+#
+
+echo "Would you like to install Neofetch? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+        neofetch
+	echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+        noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+        echo "not a valid answer. Exiting"
+	exit 1
+fi
+
+#
+#htop Installation
+#
+
+echo "Would you like to install htop? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+        htop
+        echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+        noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+        echo "not a valid answer. Exiting"
+	
+fi
+
+#Spectacle (screenshot tool)
+
+echo "Would you like to install Spectacle? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+        spectacle
+        echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+        noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+        echo "not a valid answer. Exiting"
+fi
+
+#Libreoffice
+
+echo "Would you like to install LibreOffice? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+        libreoffice
+        echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+        noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+        echo "not a valid answer. Exiting"
+	exit 1
+fi
+
+#obs
+
+echo "Would you like to install OBS (Open Broadcast Software)? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+        obs
+        echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+        noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+        echo "not a valid answer. Exiting"
+	exit 1
+fi
+
+
+#Thunderbird
+
+echo "Would you like to install Thunderbird? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+        thunderbird
+        echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+        noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+        echo "not a valid answer. Exiting"
+	exit 1
+fi
+
+
+#Yay (AUR Repo Installer)
+
+echo "Would you like to install yay (Install AUR Repos)? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	yes | sudo pacman -S base-devel
+	cd /opt
+	sudo git clone https://aur.archlinux.org/yay.git
+	sudo chown -R $USER /opt/yay
+	cd yay
+	makepkg -si
+	echo " "
+	echo "Installed Successfully."
+elif [ "$yesorno" = n ]; then
+	echo "Skipping..."
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "Not a valid answer. Exiting..."
+	exit 1
+fi
+
+#Snap package installer
+
+echo "Would you like to install Snap (Installer for Snap Packages)? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	git clone https://aur.archlinux.org/snapd.git
+	cd snapd
+	yes | makepkg -si
+	sudo systemctl enable --now snapd.socket
+	sudo ln -s /var/lib/snapd/snap /snap
+	echo " "
+	echo "Installed Successfully."
+elif [ "$yesorno" = n ]; then
+	echo "Skipping..."
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "Not a valid answer. Exiting..."
+	exit 1
+fi
+
+#Telegram install w/ snap
+
+echo "Would you like to install Telegram (Using Snap)? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	sudo snap install telegram-desktop
+	echo " "
+	echo "Installed Successfully."
+elif [ "$yesorno" = n ]; then
+	echo "Skipping..."
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "Not a valid answer. Exiting..."
+	exit 1
+fi
+
+#LosslessCut video editor install w/ snap
+
+echo "Would you like to install Losslesscut (Using Snap)? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	sudo snap install losslesscut
+	echo " "
+	echo "Installed Successfully."
+elif [ "$yesorno" = n ]; then
+	echo "Skipping..."
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "Not a valid answer. Exiting..."
+	exit 1
+fi
+
+#JDownloader2 Installer via AUR
+
+echo "Would you like to install JDownloader2? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	jdownloader
+	echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+	noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "not a valid answer. Exiting"
+	exit 1
+fi
+
+#Tor Browser
+
+echo "Would you like to install Tor? (y/n/e)"
+
+read yesorno
+
+if [ "$yesorno" = y ]; then
+	tor
+	echo " "
+	echo "Installed Successfully."
+	echo " "
+elif [ "$yesorno" = n ]; then
+	noanswer
+	echo " "
+elif [ "$yesorno" = e ]; then
+	echo "Exiting..."
+	exit 1
+else
+	echo "not a valid answer. Exiting"
+	exit 1
+fi
+
+
+
+echo "Installer Complete. Goodbye!"
