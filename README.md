@@ -30,7 +30,7 @@ Clone the repo
 NOTE: You only need to install git if you haven't already.
 ```
 $ sudo pacman -S git
-$ git clone https://github.com/LordZeuss/arch-programs
+$ git clone https://github.com/LordZeusss/arch-programs
 ```
 
 # Execution
